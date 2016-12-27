@@ -1,5 +1,6 @@
 package suggester;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -77,6 +78,28 @@ public class Suggester {
 		}
 
 		return list;
+	}
+	
+	/*
+	 * This method displays the list of suggested words from the file.
+	 * 
+	 * @param String The incorrect input string whose correct spelling is to find.
+	 * @return map all the words in file with their edit distance.
+	 */
+	
+	public static Map<String, Integer> suggestFromFile(String word) throws IOException{
+		
+		Dictionary dictionary = new Dictionary();
+		Map<String, Integer> fileMap= new HashMap<String, Integer>();
+		int editDistance;
+		
+		for (String s: dictionary.dictionaryFile("/home/digya/Desktop/dictionary")){
+			editDistance= LevenshteinDistance.distance(s, word);
+			fileMap.put(s,editDistance);
+			
+		}
+		return fileMap;
+		
 	}
 
 }
