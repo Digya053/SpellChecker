@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.Comparator;
 import dictionary.Dictionary;
 import distance.LevenshteinDistance;
+import utilities.Math;
 
 public class Suggester {
 	
@@ -59,6 +60,30 @@ public class Suggester {
 		}
 		return newMap;
 	}
+	
+	public static int thresholdValue(String word, List<String> location){
+		
+		Dictionary dictionary = new Dictionary();
+		Map<String, Integer> fileMap= new HashMap<String, Integer>();
+		int editDistance;
+		int threshold=0;
+		
+		for (String s:location){
+			editDistance= LevenshteinDistance.distance(s, word);
+			fileMap.put(s,editDistance);
+			
+		}
+		Entry<String, Integer> min=null;
+		for (Map.Entry<String, Integer> entry : fileMap.entrySet()) {
+			if(min==null||min.getValue()>entry.getValue())
+		  //threshold= Math.min(entry.getValue());
+				min=entry;
+			threshold=min.getValue();
+			
+		}
+		return threshold;
+		
+	}
 
 	/*
 	 * This method displays the list of words whose edit distance is less than the
@@ -71,7 +96,9 @@ public class Suggester {
 
 	public static List<String> match(Map<String, Integer> map, int thresholdCost){
 		List<String> list = new ArrayList<String>();
+		Dictionary dictionary = new Dictionary();
 		for(String s : map.keySet()){
+			
 			if(map.get(s) <= thresholdCost){
 				list.add(s);
 			}
