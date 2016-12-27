@@ -3,6 +3,14 @@ package main;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * This is the main method which displays all the dictionary words with edit 
+ * distance and also suggests the word with least edit distance as the correct
+ * spelling.
+ * 
+ * @author digya
+ */
+
 import suggester.Suggester;
 
 public class Main {

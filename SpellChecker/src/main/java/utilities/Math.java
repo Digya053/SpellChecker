@@ -26,18 +26,4 @@ public class Math {
 
 		return max;
 	}
-
-	public static int min(List<Integer> nums){
-		int min = nums.get(0);
-		for(int i=1; i<nums.size();i++){
-			if(min>nums.get(i)){
-				min=nums.get(i);
-			}
-		}
-
-		return min;
-	}
-
-
-
 }

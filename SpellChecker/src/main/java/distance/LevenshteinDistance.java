@@ -2,6 +2,10 @@ package distance;
 
 import utilities.Math;
 
+/*
+ * This calculates the LevenshteinDistance between two input strings.
+ */
+
 public class LevenshteinDistance {
 
 	public static int distance(String s, String t){
@@ -32,8 +36,8 @@ public class LevenshteinDistance {
 				}
 			}
 		}
-
-		/*	for(int i=0;i<m;i++){
+/*
+			for(int i=0;i<m;i++){
 			for(int j=0;j<n;j++){
 				System.out.print(lev[i][j] + " ");
 			}

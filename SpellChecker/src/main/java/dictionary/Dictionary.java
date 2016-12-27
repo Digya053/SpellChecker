@@ -3,6 +3,9 @@ package dictionary;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * The correct words are stored here.
+ */
 public class Dictionary {
 	
   public List<String> words= new ArrayList<String>();
@@ -15,6 +18,10 @@ public class Dictionary {
 	  words.add("   baglung");
 	  words.add("    butwal");
   }
+  
+  /*
+   * @return list List of correct words.
+   */
   
   public List<String> correctWords(){
 	  return this.words;
