@@ -30,6 +30,7 @@ public class Suggester {
 	 * @return newMap The stored correct words are displayed in ascending order of their editDistance.
 	 */
 	
+	
 	public static Map<String, Integer> suggest(String word){
 
 		Dictionary dictionary = new Dictionary();
@@ -49,16 +50,21 @@ public class Suggester {
 			}
 		});
 
+		
+		double percent = 0.25;
 		Map<String, Integer> orderedMap = new LinkedHashMap<String, Integer>();
-		for (Entry<String, Integer> entry : entries) {
-			orderedMap.put(entry.getKey(), entry.getValue());
-
-		}
+		
+			for(int i=0; i<=entries.size()*percent;i++){
+				Entry e = entries.get(i);
+				String w = (String)e.getKey();
+				int val = (Integer) e.getValue();
+				orderedMap.put(w, val);
+			}
 
 		for (Entry<String, Integer> e : orderedMap.entrySet()){
 			System.out.println(e.getKey() + "                " + e.getValue());
 		}
-		return newMap;
+		return orderedMap;
 	}
 	
 	public static int thresholdValue(String word, List<String> location){

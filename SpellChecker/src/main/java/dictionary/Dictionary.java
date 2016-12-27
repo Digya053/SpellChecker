@@ -17,12 +17,13 @@ public class Dictionary {
   public List<String> words= new ArrayList<String>();
   
   public Dictionary(){
-	  words.add(" kathmandu");
-	  words.add("   pokhara");
-	  words.add("biratnagar");
-	  words.add("   birgunj");
-	  words.add("   baglung");
-	  words.add("    butwal");
+	  words.add("     kathmandu");
+	  words.add("kathmanduities");
+	  words.add("       pokhara");
+	  words.add("    biratnagar");
+	  words.add("       birgunj");
+	  words.add("       baglung");
+	  words.add("        butwal");
   }
   
   /*
